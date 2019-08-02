@@ -1,0 +1,36 @@
+// REPO: https://github.com/ChuckJonas/vscode-apex-snippets
+// VSCODE DOCS: https://code.visualstudio.com/docs/editor/userdefinedsnippets
+{
+	"Print to Log": {
+		"scope": "apex",
+		"prefix": "log",
+		"body": [
+			"System.debug('${1}');"
+		],
+		"description": "Log output to log"
+	},
+	"assert": {
+		"scope": "apex",
+		"prefix": "assert",
+		"body": [
+			"System.assert(${1}, '${2:msg}');"
+		],
+		"description": "Assert(boolean)"
+	},
+	"Assert Equals": {
+		"scope": "apex",
+		"prefix": "assertEq",
+		"body": [
+			"System.assertEquals(${1}, ${2},'${3:msg}');"
+		],
+		"description": "Assert Equals"
+	},
+	"Assert Not Equals": {
+		"scope": "apex",
+		"prefix": "assertEq",
+		"body": [
+			"System.assertNotEquals(${1}, ${2},'${3:msg}');"
+		],
+		"description": "Assert Not Equals"
+	},
+}
