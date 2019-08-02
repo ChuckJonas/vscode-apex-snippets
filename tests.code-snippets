@@ -1,0 +1,35 @@
+{
+  // REPO: https://github.com/ChuckJonas/vscode-apex-snippets
+  // VSCODE DOCS: https://code.visualstudio.com/docs/editor/userdefinedsnippets
+  "New Test": {
+    "scope": "apex",
+    "prefix": "newTest",
+    "body": [
+      "@isTest",
+      "private static void ${1:myTest}(){",
+      "\t${0}",
+      "\tTest.startTest();",
+      "\t",
+      "\tTest.stopTest();",
+      "\tSystem.assert(false, 'test not implemented');",
+      "}",
+    ],
+    "description": "Start Test"
+  },
+  "Start Test": {
+    "scope": "apex",
+    "prefix": "startTest",
+    "body": [
+      "Test.startTest();"
+    ],
+    "description": "Start Test"
+  },
+  "Stop Test": {
+    "scope": "apex",
+    "prefix": "stopTest",
+    "body": [
+      "Test.stopTest();"
+    ],
+    "description": "Stop Test"
+  },
+}
