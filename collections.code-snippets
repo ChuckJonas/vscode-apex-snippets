@@ -1,0 +1,58 @@
+{
+	// REPO: https://github.com/ChuckJonas/vscode-apex-snippets
+	// VSCODE DOCS: https://code.visualstudio.com/docs/editor/userdefinedsnippets
+	"Loop List list": {
+		"scope": "apex",
+		"prefix": "loopList",
+		"body": [
+			"for (${3:String} ${2:item} : ${1:myArray}) {",
+			"\t$0",
+			"}"
+		],
+		"description": "Generates a foreach loop"
+	},
+	"Loop Map": {
+		"scope": "apex",
+		"prefix": "loopMap",
+		"body": [
+			"for(${2|String,Id|} ${3:key} : ${1:myMap}.keySet()){",
+			"\t${5:Object} ${4:item} = ${1}.get(${3});",
+			"}"
+		],
+		"description": "Generates code to loop through a Map via keys"
+	},
+	"List<SObject> To Map<Id,SObject>": {
+		"scope": "apex",
+		"prefix": "sobjListToMap",
+		"body": [
+			"Map<Id, ${2:SObject}> ${3:myMap} = new Map<Id, ${2}>(${1:myArr});"
+		],
+		"description": "Generates code to transform a List<T> to a Map<K,List<T>>"
+	},
+	"List<T> To Map<K,T>": {
+		"scope": "apex",
+		"prefix": "listToMap",
+		"body": [
+			"Map<${1|String,Id|}, ${2:SObject}> ${3:myMap} = new Map<${1}, ${2}>();",
+			"for (${2} ${5:item} : ${4:myArray}) {",
+			"\t${3}.put(${5}.${6:key}, ${5});",
+			"}"
+		],
+		"description": "Generates code to transform a List<T> to a Map<K,List<T>>"
+	},
+	"List<T> To Map<K,List<T>>": {
+		"scope": "apex",
+		"prefix": "listToMapList",
+		"body": [
+			"Map<${1|String,Id,Integer,Boolean|}, List<${2:SObject}>> ${3:myMap} = new Map<${1}, List<${2}>>();",
+			"for (${2} ${5:item} : ${4:myArray}) {",
+			"\tif(${3}.containsKey(${5}.${6:key})){",
+			"\t\t${3}.get(${5}.${6}).add(${5});",
+			"\t}else{",
+			"\t\t${3}.put(${5}.${6}, new ${2}[]{${5}});",
+			"\t}",
+			"}"
+		],
+		"description": "Generates code to transform a List<T> to a Map<K,List<T>>"
+	}
+}
