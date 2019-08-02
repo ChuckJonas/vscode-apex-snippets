@@ -1,7 +1,18 @@
 {
 	// REPO: https://github.com/ChuckJonas/vscode-apex-snippets
 	// VSCODE DOCS: https://code.visualstudio.com/docs/editor/userdefinedsnippets
-	"Loop List list": {
+	"For Loop": {
+		"scope": "apex",
+		"prefix": "forLoop",
+		"body": [
+			"Integer len = ${1:myArray}.size();",
+			"for (Integer ${2:i}=0; ${2}<len; ${2}++) {",
+			"\t$0",
+			"}"
+		],
+		"description": "Generates a standard for loop"
+	},
+	"Loop List": {
 		"scope": "apex",
 		"prefix": "loopList",
 		"body": [
@@ -9,7 +20,7 @@
 			"\t$0",
 			"}"
 		],
-		"description": "Generates a foreach loop"
+		"description": "Generates a foreach collection loop"
 	},
 	"Loop Map": {
 		"scope": "apex",
@@ -27,7 +38,15 @@
 		"body": [
 			"Map<Id, ${2:SObject}> ${3:myMap} = new Map<Id, ${2}>(${1:myArr});"
 		],
-		"description": "Generates code to transform a List<T> to a Map<K,List<T>>"
+		"description": "Generates code to transform a List<SObject> to a Map<Id,SObject>"
+	},
+	"List<SObject> to Set<Id>": {
+		"scope": "apex",
+		"prefix": "sobjToIdKeys",
+		"body": [
+			"Set<Id> ${2:myIds} = new Map<Id, ${3:SObject}>(${1:myArr}).keySet();"
+		],
+		"description": "Generates code to transform a List<SObject> to Set<Id>"
 	},
 	"List<T> To Map<K,T>": {
 		"scope": "apex",
@@ -38,7 +57,7 @@
 			"\t${3}.put(${5}.${6:key}, ${5});",
 			"}"
 		],
-		"description": "Generates code to transform a List<T> to a Map<K,List<T>>"
+		"description": "Generates code to transform a List<T> to a Map<K,T>"
 	},
 	"List<T> To Map<K,List<T>>": {
 		"scope": "apex",
