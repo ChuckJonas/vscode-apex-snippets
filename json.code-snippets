@@ -1,0 +1,20 @@
+{
+	// REPO: https://github.com/ChuckJonas/vscode-apex-snippets
+	// VSCODE DOCS: https://code.visualstudio.com/docs/editor/userdefinedsnippets
+	"JSON Deserialize ": {
+		"scope": "apex",
+		"prefix": "deserialize",
+		"body": [
+			"${1:Object} ${3:obj} = (${1}) JSON.deserialize(${2:jsonStr}, ${1}.class);"
+		],
+		"description": "JSON.deserialize"
+	},
+	"JSON serialize ": {
+		"scope": "apex",
+		"prefix": "serialize",
+		"body": [
+			"String ${2:obj} = JSON.serialize(${1:obj});"
+		],
+		"description": "JSON.serialize"
+	}
+}
